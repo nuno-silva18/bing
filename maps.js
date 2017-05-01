@@ -52,6 +52,14 @@ var request = require('request'),
     BING_MAPS_API_KEY = process.env.BING_MAPS_API_KEY,
 
     /**
+     * This URL fragment is concatenated with a 'RESOURCE' URL to specify the type of
+     * culture the API data should be returned in.
+     * @type {String}
+     * @private
+     */
+     CULTURE = '&culture=pt-PT'
+
+    /**
      * Treat the specified `obj` object as a flat collection of key-value pairs
      * and convert it to a query string prefixed with ? and ready to be concatenated
      * with a URL.
@@ -80,7 +88,7 @@ var request = require('request'),
      * returns String
      */
     createTransitUrl = function(queryArgs) {
-        return SERVICE_URL + '/' + TRANSIT_RESOURCE + objectToQueryString(queryArgs);
+        return SERVICE_URL + '/' + TRANSIT_RESOURCE + objectToQueryString(queryArgs) + CULTURE;
     },
 
     /**
@@ -92,7 +100,7 @@ var request = require('request'),
      * returns String
      */
     createWalkingUrl = function(queryArgs) {
-        return SERVICE_URL + '/' + WALKING_RESOURCE + objectToQueryString(queryArgs);
+        return SERVICE_URL + '/' + WALKING_RESOURCE + objectToQueryString(queryArgs) + CULTURE;
     },
 
     /**
@@ -104,7 +112,7 @@ var request = require('request'),
      * returns String
      */
     createDrivingUrl = function(queryArgs) {
-        return SERVICE_URL + '/' + DRIVING_RESOURCE + objectToQueryString(queryArgs);
+        return SERVICE_URL + '/' + DRIVING_RESOURCE + objectToQueryString(queryArgs) + CULTURE;
     },
 
     /**
