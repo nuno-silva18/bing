@@ -57,7 +57,7 @@ var request = require('request'),
      * @type {String}
      * @private
      */
-     CULTURE = '&culture=pt-PT'
+     CULTURE = '&culture=pt-BR'
 
     /**
      * Treat the specified `obj` object as a flat collection of key-value pairs
